@@ -561,7 +561,7 @@ case "$x" in
    exit;
    ;;
    V | v)
-   wget -P /root -N --no-check-certificate "https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh" && chmod 700 /root/install.sh && /root/install.sh 
+   v2raymanager 
    ;;
    *)
    echo -e "\n\033[1;31mOpcao invalida !\033[0m"

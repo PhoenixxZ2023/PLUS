@@ -96,3 +96,4 @@ cd /etc/SSHPlus/ && wget https://raw.githubusercontent.com/PhoenixxZ2023/PLUS/ma
 cd /etc/SSHPlus/ && wget https://raw.githubusercontent.com/PhoenixxZ2023/PLUS/main/Modulos/mainproxy && chmod 777 mainproxy && cd $HOME
 cd /etc/SSHPlus/ && wget https://raw.githubusercontent.com/PhoenixxZ2023/PLUS/main/Install/security && wget https://raw.githubusercontent.com/PhoenixxZ2023/PLUS/main/Install/pub.key && wget https://raw.githubusercontent.com/PhoenixxZ2023/PLUS/main/Install/priv.pem && chmod 777 security && cd $HOME
 cd /etc/SSHPlus/ && wget https://raw.githubusercontent.com/PhoenixxZ2023/PLUS/main/Install/proxydt && chmod 777 proxydt && cd $HOME
+cd /etc/SSHPlus/ && wget https://raw.githubusercontent.com/PhoenixxZ2023/PLUS/main/Modulos/turboproxy_manager.py && chmod 777 turboproxy_manager.py && cd $HOME

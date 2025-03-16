@@ -64,7 +64,6 @@ key2=crz
 declare -a DIRS=(
     "/etc/SSHPlus"
     "/etc/SSHPlus/v2ray"
-    "/etc/proxy"
     "/etc/slowdns"
     "/etc/SSHPlus/openvpn"
     "/etc/SSHPlus/criarusuario"

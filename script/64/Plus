@@ -135,9 +135,9 @@ awk -F : "$3 >= 500 { print $1 "1" }" /etc/passwd | grep -v "^nobody" > $HOME/us
 # Redefinir a exibição do terminal
 tput reset
 ## Exibir mensagem de espera com fundo azul e texto branco em negrito
-echo -e "\E[38;5;37m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
-echo -e "\E[38;5;37m┃\E[44;1;37m            AGUARDE A INSTALAÇÃO               \E[0m\E[38;5;37m┃"
-echo -e "\E[38;5;37m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
+echo -e "\E[38;5;36m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
+echo -e "\E[38;5;36m┃\E[44;1;37m            AGUARDE A INSTALAÇÃO               \E[0m\E[38;5;36m┃"
+echo -e "\E[38;5;36m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
 echo ""
 echo -e "       \033[1;91m[\033[1;31m⚠️ \033[1;37m] \033[1;97mATUALIZANDO SISTEMA \033[1;37m[\033[1;31m⚠️ \033[1;91m]\033[0m"
 echo ""
@@ -164,9 +164,9 @@ fun_bar "fun_attlist"
 # Redefinir a exibição do terminal
 tput reset
 # Exibir mensagem de espera com fundo azul e texto branco em negrito
-echo -e "\E[38;5;37m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
-echo -e "\E[38;5;37m┃\E[44;1;37m            AGUARDE A INSTALAÇÃO               \E[0m\E[38;5;37m┃"
-echo -e "\E[38;5;37m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
+echo -e "\E[38;5;36m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
+echo -e "\E[38;5;36m┃\E[44;1;37m            AGUARDE A INSTALAÇÃO               \E[0m\E[38;5;36m┃"
+echo -e "\E[38;5;36m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
 echo ""
 echo -e "       \033[1;91m[\033[1;31m⚠️ \033[1;91m] \033[1;97mINSTALANDO PYTHON \033[1;91m[\033[1;31m⚠️ \033[1;91m] \033[0m"
 echo ""
@@ -201,9 +201,9 @@ fun_bar "install_python3"
 # Redefinir a exibição do terminal
 tput reset
 # Exibir mensagem de espera com fundo azul e texto branco em negrito
-echo -e "\E[38;5;37m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
-echo -e "\E[38;5;37m┃\E[44;1;37m            AGUARDE A INSTALAÇÃO               \E[0m\E[38;5;37m┃"
-echo -e "\E[38;5;37m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
+echo -e "\E[38;5;36m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
+echo -e "\E[38;5;36m┃\E[44;1;37m            AGUARDE A INSTALAÇÃO               \E[0m\E[38;5;36m┃"
+echo -e "\E[38;5;36m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
 echo ""
 echo -e "       \033[1;91m[\033[1;31m⚠️ \033[1;91m] \033[1;97mINSTALANDO PACOTES  \033[1;91m[\033[1;31m⚠️ \033[1;91m] \033[0m"
 echo ""
@@ -265,9 +265,9 @@ fi
 # Redefinir a exibição do terminal
 tput reset
 # Exibir mensagem de espera com fundo azul e texto branco em negrito
-echo -e "\E[38;5;37m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
-echo -e "\E[38;5;37m┃\E[44;1;37m            AGUARDE A INSTALAÇÃO               \E[0m\E[38;5;37m┃"
-echo -e "\E[38;5;37m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
+echo -e "\E[38;5;36m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
+echo -e "\E[38;5;36m┃\E[44;1;37m            AGUARDE A INSTALAÇÃO               \E[0m\E[38;5;36m┃"
+echo -e "\E[38;5;36m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
 echo ""
 echo -e "      \033[1;91m[\033[1;31m⚠️ \033[1;91m] \033[1;97mINSTALANDO MULTI-FERRAMENTAS \033[1;91m[\033[1;31m⚠️ \033[1;91m] \033[0m"
 echo ""
@@ -288,9 +288,9 @@ fun_bar "inst_multi-ferra"
 # Redefinir a exibição do terminal novamente
 tput reset
 # Instala ferramentas de rede
-echo -e "\E[38;5;37m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
-echo -e "\E[38;5;37m┃\E[44;1;37m         INSTALANDO PACOTES DE REDE          \E[0m\E[38;5;37m┃"
-echo -e "\E[38;5;37m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
+echo -e "\E[38;5;36m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
+echo -e "\E[38;5;36m┃\E[44;1;37m         INSTALANDO PACOTES DE REDE          \E[0m\E[38;5;36m┃"
+echo -e "\E[38;5;36m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
 echo ""
 fun_bar "sudo apt-get install -y lsof >/dev/null 2>&1"
 fun_bar "sudo apt-get install -y htop >/dev/null 2>&1"
@@ -321,9 +321,9 @@ sudo chattr +i /etc/resolv.conf
 # Redefinir a exibição do terminal
 tput reset
 # Exibir a mensagem de finalização
-echo -e "\E[38;5;37m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
-echo -e "\E[38;5;37m┃\E[44;1;37m         FINALIZANDO INSTALAÇÃO          \E[0m\E[38;5;37m┃"
-echo -e "\E[38;5;37m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
+echo -e "\E[38;5;36m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
+echo -e "\E[38;5;36m┃\E[44;1;37m         FINALIZANDO INSTALAÇÃO          \E[0m\E[38;5;36m┃"
+echo -e "\E[38;5;36m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
 echo ""
 echo -e "     \033[1;93mCONCLUINDO FUNÇÕES E DEFINIÇÕES! \033[0m"
 echo ""

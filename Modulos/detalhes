@@ -9,7 +9,7 @@ echo ""
 name=$(cat /etc/lsb-release |grep DESCRIPTION |awk -F = {'print $2'})
 codename=$(cat /etc/lsb-release |grep CODENAME |awk -F = {'print $2'})
 echo -e "\033[1;33mNOME: \033[1;37m$name"
-echo -e "\033[1;33mCODE NOME: \033[1;37m$codename"
+echo -e "\033[1;33mCODE NOME: \033[1; V37m$codename"
 echo -e "\033[1;33mKERNEL: \033[1;37m$(uname -s)"
 echo -e "\033[1;33mKERNEL RELEASE: \033[1;37m$(uname -r)"
 if [ -f /etc/os-release ]
@@ -38,12 +38,12 @@ echo -e "\033[1;33mMODELO:\033[1;37m$modelo"
 echo -e "\033[1;33mNÚCLEOS:\033[1;37m $cpucores"
 echo -e "\033[1;33mMEMÓRIA CACHE:\033[1;37m$cache"
 echo -e "\033[1;33mARQUITETURA OS: \033[1;37m$(uname -p)"
-echo -e "\033[1;33mULTILIZAÇÃO: \033[37m$uso"
+echo -e "\033[1;33mUTILIZAÇÃO: \033[37m$uso"
 echo ""
 else
 echo -e "\033[1;32mPROCESSADOR\033[0m"
 echo ""
-echo "Não foi possivel obter informações"
+echo "Não foi possível obter informações"
 fi
 
 if free 1>/dev/null 2>/dev/null
@@ -63,13 +63,21 @@ echo ""
 else
 echo -e "\033[1;32mMEMÓRIA RAM\033[0m"
 echo ""
-echo "Não foi possivel obter informações"
+echo "Não foi possível obter informações"
 fi
+
+# Nova seção para o tempo de atividade
+echo -e "\033[1;31m• \033[1;32mTEMPO DE ATIVIDADE\033[1;31m •\033[0m"
+echo ""
+tempo=$(uptime -p | sed 's/up //') # Remove o "up" da saída e formata
+echo -e "\033[1;33mSERVIDOR ATIVO HÁ: \033[1;37m$tempo"
+echo ""
+
 [[ ! -e /bin/versao ]] && rm -rf /etc/SSHPlus
-echo -e "\033[1;31m• \033[1;32mSERVICOS EM EXECUCAO\033[1;31m •\033[0m"
+echo -e "\033[1;31m• \033[1;32mSERVIÇOS EM EXECUÇÃO\033[1;31m •\033[0m"
 echo ""
 PT=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
 for porta in `echo -e "$PT" | cut -d: -f2 | cut -d' ' -f1 | uniq`; do
     svcs=$(echo -e "$PT" | grep -w "$porta" | awk '{print $1}' | uniq)
-    echo -e "\033[1;33mServico \033[1;37m$svcs \033[1;33mPorta \033[1;37m$porta"
+    echo -e "\033[1;33mServiço \033[1;37m$svcs \033[1;33mPorta \033[1;37m$porta"
 done

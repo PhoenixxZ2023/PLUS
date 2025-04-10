@@ -551,7 +551,7 @@ fun_drop() {
 			echo ""
 			echo -ne "\033[1;32mDESEJA CONTINUAR \033[1;31m? \033[1;33m[s/n]:\033[1;37m "
 			read resposta
-			[[ "$resposta" = 's' ]] || [[ "$resposta" = 'S' ]] && {
+			[[ "$resposta" = 's' ]] && {
 				echo -e "\n\033[1;33mDEFINA UMA PORTA PARA O SSL TUNNEL !\033[0m"
 				echo ""
 				read -p "$(echo -e "\033[1;32mQUAL PORTA DESEJA UTILIZAR? \033[1;37m")" -e -i 443 porta

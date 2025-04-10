@@ -9,7 +9,7 @@ echo ""
 name=$(cat /etc/lsb-release |grep DESCRIPTION |awk -F = {'print $2'})
 codename=$(cat /etc/lsb-release |grep CODENAME |awk -F = {'print $2'})
 echo -e "\033[1;33mNOME: \033[1;37m$name"
-echo -e "\033[1;33mCODE NOME: \033[1; V37m$codename"
+echo -e "\033[1;33mCODE NOME: \033[1;37m$codename"
 echo -e "\033[1;33mKERNEL: \033[1;37m$(uname -s)"
 echo -e "\033[1;33mKERNEL RELEASE: \033[1;37m$(uname -r)"
 if [ -f /etc/os-release ]

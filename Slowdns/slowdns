@@ -30,10 +30,10 @@ echo -e "${GRAY}[${RED}-${GRAY}]${RED} ──       Telegram: @TURBONET2023     
 echo -e "${GRAY}[${RED}-${GRAY}]${RED} ───────────────── /// ────────────────── ${RESET}"
 echo -e "${YELLOW}SERVIDOR: ${WHITE}$IP\033[0m "
 echo -e "${YELLOW}HOSTNAME: ${WHITE}$HOST\033[0m "
-arquivo="/etc/slowdns/infons"
+archivo="/etc/slowdns/infons"
 if [ -e "$archivo" ]; then
     echo -ne "${YELLOW}SEU NS: ${WHITE} " && cat /etc/slowdns/infons
-    echo -ne "${YELLOW}SUA CHAVE PÚBLICA:\033[0m " && cat /root/server.pub
+    echo -ne "${YELLOW}SUA CHAVE PÚBLICA: \033[0m " && cat /root/server.pub
 else
     echo -e "${RED}SLOWDNS NÃO INSTALADO.\033[0m"
 fi

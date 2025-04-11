@@ -60,7 +60,7 @@ SCOLOR='\033[0m'
 			slowdns
 		} || {
 			cd $HOME
-			rm -rf install; apt update; wget https://github.com/powermx/dnstt/raw/main/install; chmod 777 install; ./install --start
+			wget -qO- https://raw.githubusercontent.comPhoenixxZ2023/PLUS/refs/heads/main/Slowdns/dnstt-installer.sh | bash
 		}
 
 	}

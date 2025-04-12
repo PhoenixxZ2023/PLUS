@@ -17,7 +17,7 @@ try:
 except:
     PORT = 8080
 PASS = ''
-BUFLEN = 8196 * 8
+BUFLEN = 8196 
 TIMEOUT = 60
 MSG = 'ALERT'
 DEFAULT_HOST = '0.0.0.0:1194'

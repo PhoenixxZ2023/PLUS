@@ -36,3 +36,6 @@ sleep 2
 fun_bar 'fun_desable'
 echo ""
 echo "  SlowDNS Desativado! [✔]"
+echo -e "\033[1;31mPRESSIONE ENTER PARA CONTINUAR. \033[0m"
+read -p " "
+menu

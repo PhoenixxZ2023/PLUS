@@ -154,7 +154,7 @@ archAffix(){
         ;;
     esac
 
-	return 0
+    return 0
 }
 
 zipRoot() {
@@ -197,6 +197,11 @@ downloadV2Ray(){
     curl ${proxy} -L -H "Cache-Control: no-cache" -o ${zipfile} ${download_link}
     if [ $? != 0 ];then
         colorEcho ${red} "Failed to download! Please check your network or try again."
+        return 3
+    fi
+    # Verificar se o arquivo ZIP é válido
+    if ! unzip -t "$zipfile" >/dev/null 2>&1; then
+        colorEcho ${red} "Downloaded file is not a valid ZIP. Please check your network or try again."
         return 3
     fi
     return 0
@@ -287,12 +292,18 @@ getVersion(){
 
 stopV2ray(){
     colorEcho ${blue} "Shutting down $key service."
-    if [[ -n "${systemctl_cmd}" ]] || [[ -f "/lib/systemd/system/$key_lower.service" ]] || [[ -f "/etc/systemd/system/$key_lower.service" ]]; then
-        ${systemctl_cmd} stop $key_lower
-    fi
-    if [[ $? -ne 0 ]]; then
-        colorEcho ${yellow} "Failed to shutdown $key service."
-        return 2
+    if [[ -n "${systemctl_cmd}" ]] && { [[ -f "/lib/systemd/system/$key_lower.service" ]] || [[ -f "/etc/systemd/system/$key_lower.service" ]]; }; then
+        if ${systemctl_cmd} is-active --quiet $key_lower; then
+            ${systemctl_cmd} stop $key_lower
+            if [[ $? -ne 0 ]]; then
+                colorEcho ${yellow} "Failed to shutdown $key service."
+                return 2
+            fi
+        else
+            colorEcho ${yellow} "$key service is not running."
+        fi
+    else
+        colorEcho ${yellow} "$key service is not installed."
     fi
     return 0
 }
@@ -314,6 +325,16 @@ installV2Ray(){
         unzip_param="$2v2ctl"
         chmod_param="/usr/bin/$key_lower/v2ctl"
     fi
+    # Garantir que /usr/bin/$key_lower seja um diretório
+    if [ -e "/usr/bin/$key_lower" ]; then
+        if [ ! -d "/usr/bin/$key_lower" ]; then
+            rm -f "/usr/bin/$key_lower"  # Remove se for um arquivo
+        fi
+    fi
+    mkdir -p "/usr/bin/$key_lower" || {
+        colorEcho ${red} "Failed to create directory /usr/bin/$key_lower."
+        return 1
+    }
     mkdir -p /etc/$key_lower /var/log/$key_lower && \
     unzip -oj "$1" "$2${key_lower}" "$2geoip.dat" "$2geosite.dat" $unzip_param -d /usr/bin/$key_lower && \
     chmod +x /usr/bin/$key_lower/$key_lower $chmod_param || {
@@ -375,7 +396,6 @@ EOF
         colorEcho ${blue} "uuid:${uuid}"
     fi
 }
-
 
 installInitScript(){
     if [[ -e /.dockerenv ]]; then

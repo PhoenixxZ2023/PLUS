@@ -1332,7 +1332,6 @@ exit 0' >$RCLOCAL
 		[[ $(screen -list | grep -wc 'security') != '0' ]] && var_sks4="\033[1;32m◉" || var_sks4="\033[1;31m○"
 		[[ $(screen -list | grep -wc 'proxydt') != '0' ]] && var_sks6="\033[1;32m◉" || var_sks6="\033[1;31m○"
 		[[ $(screen -list | grep -wc 'openpy') != '0' ]] && sksop="\033[1;32m◉" || sksop="\033[1;31m○"
-		echo ""
 		echo -e "\033[01;31m┃\033[0m\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mPROXY-SOCKS SSH $var_sks1 \033[0m        \033[01;31m┃\033[0m"
 		echo -e "\033[01;31m┃\033[0m\033[1;31m[\033[1;36m02\033[1;31m] \033[1;37m• \033[1;33mWEBSOCKET $var_sks2 \033[0m              \033[01;31m┃\033[0m"
 		echo -e "\033[01;31m┃\033[0m\033[1;31m[\033[1;36m03\033[1;31m] \033[1;37m• \033[1;33mWEBSOCKET SECURITY $var_sks3 \033[0m     \033[01;31m┃\033[0m"

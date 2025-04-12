@@ -1,5 +1,11 @@
 #!/bin/bash
 clear
+apt-get install lolcat -y &>/dev/null
+apt-get install figlet -y &>/dev/null
+apt-get install curl -y &>/dev/null
+apt install git -y &>/dev/null 
+apt install figlet boxes -y &>/dev/null
+
 # Verificação se o usuário é root
 cd $HOME
 if [[ "$(whoami)" != "root" ]]; then
@@ -198,7 +204,7 @@ echo -e " \033[1;93mALGUNS PACOTES SÃO EXTREMAMENTE NECESSÁRIOS!\033[0m"
 echo ""
 # Função para instalar pacotes necessários
   inst_pct() {
-        _pacotes=("bc" "screen" "nano" "unzip" "lsof" "netstat" "net-tools" "dos2unix" "nload" "jq" "curl" "figlet" "at")
+        _pacotes=("bc" "screen" "nano" "unzip" "lsof" "netstat" "net-tools" "dos2unix" "nload" "jq" "curl" "at")
         for _prog in ${_pacotes[@]}; do
             apt install $_prog -y
         done
@@ -258,9 +264,6 @@ echo""
 echo -e         "\033[1;36mINSTALANDO DNS PERSONALIZADOS\033[0m"
 echo ""
 
-# Limpar as regras atuais do iptables antes de qualquer coisa
-iptables -F
-
 # Remover o link simbólico para /etc/resolv.conf (se existir)
 sudo rm -f /etc/resolv.conf
 
@@ -279,7 +282,7 @@ echo -e "\E[38;5;36m╰━━━━━━━━━━━━━━━━━━━
 echo ""
 echo -e "     \033[1;93mCONCLUINDO FUNÇÕES E DEFINIÇÕES! \033[0m"
 echo ""
-
+echo ""
 # Executar a função fun_bar com argumentos
 fun_bar "$_Ink/list $_lnk $_Ink $_1nk $key"
 

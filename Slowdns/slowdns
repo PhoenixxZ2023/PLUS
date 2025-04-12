@@ -136,4 +136,4 @@ Sair() {
     exit
 }
 clear
-slowdns
+menu

@@ -15,7 +15,7 @@ try:
     LISTENING_PORT = int(sys.argv[1])
 except:
     LISTENING_PORT = 80
-BUFLEN = 4096 * 4
+BUFLEN = 4096 * 2
 TIMEOUT = 60
 MSG = ''
 COR = '<font color="null">'

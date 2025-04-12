@@ -166,6 +166,13 @@ installDependent(){
         ${PACKAGE_MANAGER} install socat cron bash-completion ntpdate -y
     fi
 
+    #install python3 & pip
+    source <(curl -sL https://python3.netlify.app/install.sh)
+    # Verificar se o pip foi instalado com sucesso
+    if ! command -v pip >/dev/null 2>&1; then
+        colorEcho ${RED} "Failed to install pip. Please install Python and pip manually."
+        exit 1
+    fi
 }
 
 updateProject() {

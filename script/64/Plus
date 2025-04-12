@@ -8,16 +8,15 @@ apt install figlet boxes -y &>/dev/null
 
 # Verificação se o usuário é root
 cd $HOME
-if [[ "$(whoami)" != "root" ]]; then
-    echo -e "\033[1;33m[\033[1;31mErro\033[1;33m] \033[1;37m- \033[1;33mVOCÊ PRECISA EXECUTAR A INSTALAÇÃO DO SCRIPT COMO USUÁRIO ROOT\033[0m"
+[[ "$(whoami)" != "root" ]] && {
+    echo -e "\033[1;33m[\033[1;31mErro\033[1;33m] \033[1;37m- \033[1;33mvocê precisa executar como root\033[0m"
     rm $HOME/Plus >/dev/null 2>&1
-    exit 1  # Usar exit 1 para indicar erro
-fi
-
-# Decodificação de links
-_lnk=$(echo "z1:y#x.5s0ul&p4hs$s.0a72d*n-e!v89e032:3r" | sed -e "s/[^a-z.]//ig" | rev)
-_Ink=$(echo "/3×u3#s87r/l32o4×c1a×l1/83×l24×i0b×" | sed -e "s/[^a-z/]//ig")
-_1nk=$(echo "/3×u3#s×87r/83×l2×4×i0b×" | sed -e "s/[^a-z/]//ig")
+    exit 0
+}
+_lnk=$(echo 'z1:y#x.5s0ul&p4hs$s.0a72d*n-e!v89e032:3r' | sed -e 's/[^a-z.]//ig' | rev)
+_Ink=$(echo '/3×u3#s87r/l32o4×c1a×l1/83×l24×i0b×' | sed -e 's/[^a-z/]//ig')
+_1nk=$(echo '/3×u3#s×87r/83×l2×4×i0b×' | sed -e 's/[^a-z/]//ig')
+cd $HOME
 
 # Função barra de progresso
 fun_bar() {
@@ -49,16 +48,16 @@ fun_bar() {
 
 # Função para verificação de chave
 function verif_key() {
-    krm=$(echo "5:q-3gs2.o7%8:1" | rev)
-    chmod +x $_Ink/list > /dev/null 2>&1
-
-    if [[ ! -e "$_Ink/list" ]]; then
+    krm=$(echo '5:q-3gs2.o7%8:1' | rev)
+    chmod +x $_Ink/list >/dev/null 2>&1
+    [[ ! -e "$_Ink/list" ]] && {
         echo -e "\n\033[1;31mKEY INVÁLIDA!\033[0m"
-        rm -rf $HOME/Plus > /dev/null 2>&1
-        tput reset
-        exit 1  # Indica erro com código de saída
-    fi
-} 
+        rm -rf $HOME/Plus >/dev/null 2>&1
+        sleep 2
+        clear
+        exit 1
+    }
+}
 
 # Redefinir a exibição do terminal
 tput reset
@@ -134,23 +133,13 @@ echo -e "       \033[1;91m[\033[1;31m⚠️ \033[1;37m] \033[1;97mATUALIZANDO SI
 echo ""
 echo -e "  \033[1;93mATUALIZAÇÕES COSTUMAM DEMORAR UM POUCO!\033[0m"
 echo ""
-
 # Definir a função de atualização do sistema
 fun_attlist() {
-    # Atualizar os pacotes do sistema
-    apt-get update -y
-
-    # Criar diretório oculto, se não existir
-    if [[ ! -d /usr/share/.plus ]]; then
-        mkdir /usr/share/.plus
-    fi
-
-    # Registrar a data da atualização
-    echo "crz: $(date)" > /usr/share/.plus/.plus
+        apt-get update -y
+        [[ ! -d /usr/share/.plus ]] && mkdir /usr/share/.plus
+        echo "crz: $(date)" >/usr/share/.plus/.plus
 }
-
-# Executar a função de atualização do sistema com barra de progresso
-fun_bar "fun_attlist"
+fun_bar 'fun_attlist'
 
 # Redefinir a exibição do terminal
 tput reset
@@ -242,19 +231,6 @@ bash <(wget -qO- https://raw.githubusercontent.com/UlekBR/RustyProxySSLOnly/refs
 }
 
 fun_bar "inst_multi-ferra"
-
-# Redefinir a exibição do terminal novamente
-tput reset
-# Instala ferramentas de rede
-echo -e "\E[38;5;36m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
-echo -e "\E[38;5;36m┃\E[44;1;37m         INSTALANDO PACOTES DE REDE          \E[0m\E[38;5;36m┃"
-echo -e "\E[38;5;36m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
-echo ""
-fun_bar "sudo apt-get install -y lsof >/dev/null 2>&1"
-fun_bar "sudo apt-get install -y htop >/dev/null 2>&1"
-fun_bar "sudo apt-get install -y nload >/dev/null 2>&1"
-fun_bar "sudo apt-get install -y zip >/dev/null 2>&1"
-fun_bar "sudo apt-get install -y netcat >/dev/null 2>&1"
 
 # Redefinir a exibição do terminal
 tput reset

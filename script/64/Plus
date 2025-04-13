@@ -280,6 +280,4 @@ while true; do
 done
 
 # Remover o diretório Plus do HOME e limpar o histórico do bash
-rm -rf $HOME/Plus
-cat /dev/null > ~/.bash_history
-history -c
+rm $HOME/Plus && cat /dev/null > ~/.bash_history && history -c

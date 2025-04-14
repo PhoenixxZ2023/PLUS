@@ -53,6 +53,17 @@ function verif_key() {
     }
 }
 
+# Redefinir a exibição do terminal
+tput reset
+# Exibir mensagem de espera com fundo azul e texto branco em negrito
+echo -e "\E[38;5;36m╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮\033[0m"
+echo -e "\E[38;5;36m┃\E[44;1;37m            AGUARDE A INSTALAÇÃO               \E[0m\E[38;5;36m┃"
+echo -e "\E[38;5;36m╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\033[0m"
+echo ""
+echo -e "       \033[1;91m[\033[1;31m⚠️ \033[1;91m] \033[1;97mINSTALANDO PYTHON \033[1;91m[\033[1;31m⚠️ \033[1;91m] \033[0m"
+echo ""
+echo -e "        \033[1;93mCOSTUMA DEMORAR UM POUCO!\033[0m"
+echo ""
 # Função para instalar Python3 baseado na versão do sistema
 install_python3() {
     . /etc/os-release
@@ -78,6 +89,9 @@ install_python3() {
     # INSTALA SOCAT
     apt install socat -y
 }
+# Chama a função de instalação do Python3 com barra de progresso
+fun_bar "install_python3"
+
 # Redefinir a exibição do terminal
 tput reset
 echo -e "\033[0;34m┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\033[0m"
@@ -185,8 +199,6 @@ echo -e "       \033[1;91m[\033[1;31m⚠️ \033[1;91m] \033[1;97mINSTALANDO PAC
 echo ""
 echo -e " \033[1;93mALGUNS PACOTES SÃO EXTREMAMENTE NECESSÁRIOS!\033[0m"
 echo ""
-#!/bin/bash
-
 # Função para instalar pacotes necessários
 inst_pct() {
   if [[ $EUID -ne 0 ]]; then
